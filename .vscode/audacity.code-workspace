@@ -1,0 +1,32 @@
+{
+    "folders": [
+        {
+            "path": ".."
+        }
+    ],
+    "settings": {
+        "cmake.generator": "Ninja",
+        "cmake.buildDirectory": "${workspaceFolder}/build",
+        "cmake.installPrefix": "${workspaceFolder}/build/install",
+        "cmake.configureArgs": [
+            // "-DAU_MODULE_EFFECTS_VST=ON"
+            "-DNINJA_BIGOBJ=1"
+        ],
+        "editor.guides.indentation": true,
+        "editor.detectIndentation": true,
+        "editor.guides.highlightActiveIndentation": true,
+        "editor.autoIndent": "full",
+        "editor.tabSize": 4,
+        "explorer.excludeGitIgnore": false,
+        "search.useIgnoreFiles": false,
+        "files.exclude": {
+            "build": true,
+            "builds": true
+        },
+        "C_Cpp.autoAddFileAssociations": false,
+        "uncrustify.configPath.windows": "${workspaceFolder}/_deps/muse_framework-src/buildscripts/ci/checkcodestyle/uncrustify_muse.cfg",
+        "uncrustify.configPath.linux": "${workspaceFolder}/_deps/muse_framework-src/buildscripts/ci/checkcodestyle/uncrustify_muse.cfg",
+        "uncrustify.configPath.osx": "${workspaceFolder}/_deps/muse_framework-src/buildscripts/ci/checkcodestyle/uncrustify_muse.cfg",
+        "cmake.useVsDeveloperEnvironment": "auto",
+    }
+}
