@@ -28,21 +28,21 @@
 #include <QSvgRenderer>
 
 #include "translation.h"
-#include "muversion.h"
 
 using namespace au::appshell;
+using namespace muse;
 
 static const QString imagePath(":/resources/LoadingScreen.svg");
 
-static constexpr QSize loadingScreenSize(810, 405);
+static constexpr QSize loadingScreenSize(800, 380);
 
 static const QColor messageColor("#99FFFFFF");
 static constexpr QRectF messageRect(loadingScreenSize.width() / 2, 269, 0, 0);
 
-static const QString website("www.musescore.org");
-static constexpr QRectF websiteRect(loadingScreenSize.width() - 48, loadingScreenSize.height() - 48, 0, 0);
+static const QString website("www.audacityteam.org");
+static constexpr QRectF websiteRect(76, 240, 0, 0);
 
-static const QColor versionNumberColor("#22A0F4");
+static const QColor versionNumberColor("#EB4859");
 static constexpr qreal versionNumberSpacing = 5.0;
 
 LoadingScreenView::LoadingScreenView(QWidget* parent)
@@ -82,7 +82,7 @@ void LoadingScreenView::draw(QPainter* painter)
     QPen pen(messageColor);
     painter->setPen(pen);
 
-    painter->drawText(messageRect, Qt::AlignTop | Qt::AlignHCenter | Qt::TextDontClip, m_message);
+    // painter->drawText(messageRect, Qt::AlignTop | Qt::AlignHCenter | Qt::TextDontClip, m_message);
 
     //! TODO AU4
     Qt::AlignmentFlag alignment = Qt::AlignLeft;
@@ -99,5 +99,5 @@ void LoadingScreenView::draw(QPainter* painter)
 
     painter->drawText(websiteRect.translated(0.0, -websiteBoundingRect.height() - versionNumberSpacing),
                       Qt::AlignBottom | alignment | Qt::TextDontClip,
-                      qtrc("appshell", "Version %1").arg(QString::fromStdString(MUVersion::fullVersion().toStdString())));
+                      qtrc("appshell", "Version %1").arg(application()->version().major()));
 }
